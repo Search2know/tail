@@ -7,7 +7,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-
 public class tail {
     @Option(name = "-c", usage = "last chars in file", forbids = {"-n"})
     private int chars = -1;
@@ -40,11 +39,14 @@ public class tail {
                 splitterC(input, chars, output);
             else if (files != -1)
                 splitterN(input, files, output);
+            if (chars == -1 && files == -1) {
+                files = 10;
+                splitterN(input, files, output);
+            }
 
         }
 
     }
-
 
     private static void splitterC(ArrayList<String> inputter, int count, String output) throws IOException {
         Writer writer = new BufferedWriter(new OutputStreamWriter(
