@@ -34,6 +34,7 @@ public class tail {
             System.err.println("java -jar tail.jar  -c|-n num -o basicOutputName inputFileName1 inputFileName2 ...");
             parse.printUsage(System.err);
         }
+
         if (input.size() != 0) {
             if (chars != -1)
                 splitterC(input, chars, output);
